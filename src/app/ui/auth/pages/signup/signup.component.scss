@@ -1,0 +1,34 @@
+.container{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn{
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 38%;
+      float: right;
+  }
+  btn:hover {
+      opacity: 0.8;
+  }
+  input.right-align {
+    -moz-appearance: textfield;
+  }
+  .mat-form-field{
+    width: 100%;
+  }
+  .errorMessage{
+    color: red;
+    width: 100%
+  }
+  
+  

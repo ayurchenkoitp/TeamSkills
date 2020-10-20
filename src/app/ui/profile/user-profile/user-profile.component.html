@@ -1,0 +1,43 @@
+<button (click)='logout()'>&lt;&lt;LogOut(temporary button)</button>
+<div class="wrapper">
+    <div class="imageContainer">
+        <h2>My profile</h2>
+        <img class="profileImage" src="{{imageUrl}}" alt="avatar">
+        <button (click)="chooseImage()">Upload picture</button>
+    </div>
+    <div class="infoContainer" *ngIf='currentUser!=null'>
+        <p class="emailText">
+            Email: {{currentUser.email}}
+        </p>
+        <div *ngIf='currentUser.emailConfirmed === false'>
+            <button class="emailConfirmationButton" mat-raised-button (click)="sendEmailConfirmation()">Confirm Email</button>
+        </div>
+        <p class="emailText" *ngIf='changeFirstName===false'>First Name: {{currentUser.firstName}}
+        <button mat-icon-button (click)='changeFirstName=true'>
+            <mat-icon>create</mat-icon>
+        </button></p>
+        <div *ngIf='changeFirstName===true'>
+            <mat-form-field>
+                <mat-label>Enter your First Name</mat-label>
+                <input matInput [(ngModel)]="currentUser.firstName" required> 
+            </mat-form-field>
+            <button mat-icon-button (click)='changeFirstName=false'>
+                <mat-icon>done</mat-icon>
+            </button>
+        </div>
+        <p class="emailText" *ngIf='changeLastName===false'>Last Name: {{currentUser.lastName}}
+        <button mat-icon-button (click)='changeLastName=true'>
+            <mat-icon>create</mat-icon>
+        </button></p>
+        <div *ngIf='changeLastName===true'>
+            <mat-form-field>
+                <mat-label>Enter your Last Name</mat-label>
+                <input matInput [(ngModel)]="currentUser.lastName" required> 
+            </mat-form-field>
+            <button mat-icon-button (click)='changeLastName=false'>
+                <mat-icon>done</mat-icon>
+            </button>
+        </div>
+        <button class="submitButton" mat-raised-button (click)="saveProfileChanges()">Save changes</button>
+    </div>
+</div>

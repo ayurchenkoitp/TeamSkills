@@ -1,0 +1,34 @@
+<a routerLink="/auth/login">&lt;&lt;Back to Login</a>
+<div class="container">
+    <h2>Register</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [formControl]="firstName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput [formControl]="lastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password Confirm</mat-label>
+        <input matInput [formControl]="passwordConfirm" [type]="hide ? 'password' : 'text'" required>
+        <mat-error *ngIf="isInvalidPass()">Password is not the same</mat-error>
+    </mat-form-field>
+    <p class="errorMessage" *ngIf="errorServerMessage!=null" >{{errorServerMessage}}</p>
+    <a href="#" *ngIf="errorServerMessage!=null">Click here to restore your password</a>
+    <!-- <button disabled class="btn btn-lg btn-primary btn-block" (click)='onSubmitAPI()'>Submit</button> -->
+    <button mat-raised-button class="btn btn-lg btn-primary btn-block"  (click)='onSubmitAPI()' [disabled]="this.email.errors || this.firstName.errors || this.lastName.errors || this.password.errors  || this.passwordConfirm.errors">Submit</button>
+</div>

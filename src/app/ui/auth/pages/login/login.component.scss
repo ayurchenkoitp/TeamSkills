@@ -1,0 +1,61 @@
+.wrapper {
+  //max-width: 330px;
+  width: 100%;
+  height: 70%;
+  // //padding: 15px;
+  // margin: 0 auto;
+  // border-color: #4CAF50;
+  // border-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.lostpass{
+  color: grey;
+}
+.auth{
+  max-width: 260px;
+  max-height: 330px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: deepskyblue;
+  padding: 35px;
+  padding-block-start: 40;
+  padding-block-end: 40;
+  border-radius: 8px; 
+}
+
+.signup{
+  display: flex;
+  justify-content: flex-end;
+}
+
+h2{
+  font:500 30px/32px Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+btn:hover {
+    opacity: 0.8;
+}
+  
+.lostpass{
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.mat-form-field{
+  width: 100%;
+}

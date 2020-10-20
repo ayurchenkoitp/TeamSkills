@@ -1,0 +1,24 @@
+<div class='wrapper'>
+    <div class="auth">
+        <h2 class="form-auth-heading">Login</h2>
+        <div class="container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email/username</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="button" (click)='onSubmitAPI()'>Sign in</button>
+        <p class="lostpass" routerLink="/profile/restorepass">Lost your Password?</p><br>
+        <a class="signup" routerLink="/auth/signup">Sign up here!</a>
+    </div>
+</div>
